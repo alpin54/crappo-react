@@ -45,7 +45,7 @@ const HeroBanner = (props) => {
 
 	return (
 		<div className={classNameSingle}>
-			{props.list.length === 1 &&
+			{props.list.length === 1 ? (
 				props.list.map((val, idx) => {
 					return (
 						<div className={style.item} key={`hb-${idx}`}>
@@ -56,8 +56,8 @@ const HeroBanner = (props) => {
 							</div>
 						</div>
 					);
-				})}
-			{props.list.length > 1 && (
+				})
+			) : (
 				<Slider {...settings}>
 					{props.list.map((val, idx) => {
 						return (

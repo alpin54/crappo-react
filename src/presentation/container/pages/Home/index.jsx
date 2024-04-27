@@ -13,15 +13,15 @@ import GrowProfit from "presentation/component/organisms/GrowProfit";
 import StartMining from "presentation/component/organisms/StartMining";
 
 // -- dummy data
-import bannerData from "./bannerData";
-import featuresData from "./featuresData";
-import whyCrappoData from "./whyCrappoData";
-import calculateData from "./calculateData";
-import cryptoData from "./cryptoData";
-import marketData from "./marketData";
-import statisticsData from "./statisticsData";
-import growProfitData from "./growProfitData";
-import startMiningData from "./startMiningData";
+import bannerData from "./dummyData/bannerData";
+import featuresData from "./dummyData/featuresData";
+import whyCrappoData from "./dummyData/whyCrappoData";
+import calculateData from "./dummyData/calculateData";
+import cryptoData from "./dummyData/cryptoData";
+import marketData from "./dummyData/marketData";
+import statisticsData from "./dummyData/statisticsData";
+import growProfitData from "./dummyData/growProfitData";
+import startMiningData from "./dummyData/startMiningData";
 
 const Home = () => {
 	return (
