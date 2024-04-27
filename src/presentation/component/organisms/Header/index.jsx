@@ -44,7 +44,7 @@ const Header = ({ activeMenu }) => {
 	}, []);
 
 	let _lastScrollTop = 0;
-	let _delta = 2;
+	let _delta = 0;
 	let _headerHeight = height / 2;
 	// sticky header
 	const isSticky = () => {

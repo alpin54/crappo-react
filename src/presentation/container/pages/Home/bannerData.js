@@ -1,6 +1,6 @@
 // -- asset image
 import heroBanner from "core/assets/img/dummy/hero-banner.svg";
-import whyCrappo from "core/assets/img/dummy/why-crappo.svg";
+// import whyCrappo from "core/assets/img/dummy/why-crappo.svg";
 
 const bannerData = {
 	list: [
@@ -17,19 +17,19 @@ const bannerData = {
 				text: "Try for FREE",
 			},
 		},
-		{
-			sale: {
-				title: "75% SAVE",
-				desc: "For the Black Friday weekend",
-			},
-			title: "Why you should choose CRAPPO",
-			desc: "Experience the next generation cryptocurrency platform. No financial borders, extra fees, and fake reviews.",
-			img: whyCrappo,
-			btn: {
-				to: "apps.html",
-				text: "Learn More",
-			},
-		},
+		// {
+		// 	sale: {
+		// 		title: "75% SAVE",
+		// 		desc: "For the Black Friday weekend",
+		// 	},
+		// 	title: "Why you should choose CRAPPO",
+		// 	desc: "Experience the next generation cryptocurrency platform. No financial borders, extra fees, and fake reviews.",
+		// 	img: whyCrappo,
+		// 	btn: {
+		// 		to: "apps.html",
+		// 		text: "Learn More",
+		// 	},
+		// },
 	],
 };
 
