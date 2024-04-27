@@ -8,11 +8,11 @@ const FeaturesItem = (props) => {
 	return (
 		<div className={style.item}>
 			<div className={style.icon}>
-				<SystemIcon name="chart" />
+				<SystemIcon name={props.icon_font} />
 			</div>
 			<div className={style.text}>
 				<h4 className={style.title}>{props.title}</h4>
-				<p className={style.desc}>{props.desc}</p>
+				<p className={style.desc}>{props.description}</p>
 			</div>
 		</div>
 	);

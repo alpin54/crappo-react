@@ -16,7 +16,7 @@ const HeroBanner = (props) => {
 	const [showSingle, setShowSingle] = useState(false);
 
 	useEffect(() => {
-		let timer = setTimeout(() => setShowSingle(true), 300);
+		let timer = setTimeout(() => setShowSingle(true), 500);
 
 		return () => {
 			clearTimeout(timer);
@@ -59,17 +59,18 @@ const HeroBanner = (props) => {
 				})
 			) : (
 				<Slider {...settings}>
-					{props.list.map((val, idx) => {
-						return (
-							<div className={style.item} key={`hb-${idx}`}>
-								<div className={style.middleAlign}>
-									<div className="container">
-										<HeroBannerItem {...val} />
+					{showSingle &&
+						props.list.map((val, idx) => {
+							return (
+								<div className={style.item} key={`hb-${idx}`}>
+									<div className={style.middleAlign}>
+										<div className="container">
+											<HeroBannerItem {...val} />
+										</div>
 									</div>
 								</div>
-							</div>
-						);
-					})}
+							);
+						})}
 				</Slider>
 			)}
 		</div>

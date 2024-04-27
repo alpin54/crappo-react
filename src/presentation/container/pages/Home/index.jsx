@@ -1,10 +1,12 @@
 // -- tempaltes
 import Default from "presentation/component/templates/Default";
 
+// -- widgets
+import HeroBannerWidget from "infrastructure/widgets/HeroBannerWidget";
+import FeaturesWidget from "infrastructure/widgets/FeaturesWidget";
+import WhyCrappoWidget from "infrastructure/widgets/WhyCrappoWidget";
+
 // -- components
-import HeroBanner from "presentation/component/organisms/HeroBanner";
-import Features from "presentation/component/organisms/Features";
-import WhyCrappo from "presentation/component/organisms/WhyCrappo";
 import Calculate from "presentation/component/organisms/Calculate";
 import Crypto from "presentation/component/organisms/Crypto";
 import Market from "presentation/component/organisms/Market";
@@ -13,9 +15,6 @@ import GrowProfit from "presentation/component/organisms/GrowProfit";
 import StartMining from "presentation/component/organisms/StartMining";
 
 // -- dummy data
-import bannerData from "./dummyData/bannerData";
-import featuresData from "./dummyData/featuresData";
-import whyCrappoData from "./dummyData/whyCrappoData";
 import calculateData from "./dummyData/calculateData";
 import cryptoData from "./dummyData/cryptoData";
 import marketData from "./dummyData/marketData";
@@ -26,9 +25,9 @@ import startMiningData from "./dummyData/startMiningData";
 const Home = () => {
 	return (
 		<Default activeMenu="home">
-			<HeroBanner {...bannerData} />
-			<Features {...featuresData} />
-			<WhyCrappo {...whyCrappoData} />
+			<HeroBannerWidget />
+			<FeaturesWidget />
+			<WhyCrappoWidget />
 			<Calculate {...calculateData} />
 			<Crypto {...cryptoData} />
 			<Market {...marketData} />
