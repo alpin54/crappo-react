@@ -4,10 +4,9 @@ import style from "./style.module.scss";
 // -- molecule
 import FeaturesItem from "presentation/component/molecules/FeaturesItem";
 
-const Features = (props) => {
-	const { data } = props;
+const Features = ({ data }) => {
 	return (
-		<div className={style.features}>
+		<section className={style.features} id="features">
 			<div className="container">
 				<div className={style.list}>
 					{data.map((val, idx) => {
@@ -19,7 +18,7 @@ const Features = (props) => {
 					})}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

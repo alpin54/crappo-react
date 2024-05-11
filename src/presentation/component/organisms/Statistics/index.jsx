@@ -6,7 +6,7 @@ import Button from "presentation/component/atoms/Button";
 
 const Statistics = (props) => {
 	return (
-		<div className={style.statistics}>
+		<section className={style.statistics}>
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
@@ -23,7 +23,7 @@ const Statistics = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

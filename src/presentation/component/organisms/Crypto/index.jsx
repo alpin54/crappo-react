@@ -4,13 +4,13 @@ import style from "./style.module.scss";
 // -- atoms
 import CryptoItem from "presentation/component/molecules/CryptoItem";
 
-const Crypto = (props) => {
+const Crypto = ({ data }) => {
 	return (
-		<div className={style.crypto}>
+		<section className={style.crypto} id="products">
 			<div className="container">
-				<h2 className={style.title}>{props.title}</h2>
+				<h2 className={style.title}>{data.title}</h2>
 				<div className={style.list}>
-					{props.list.map((val, idx) => {
+					{data.list.map((val, idx) => {
 						return (
 							<div className={style.item} key={`ci-${idx}`}>
 								<CryptoItem {...val} />
@@ -19,7 +19,7 @@ const Crypto = (props) => {
 					})}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

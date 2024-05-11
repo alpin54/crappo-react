@@ -7,7 +7,7 @@ import FormControl from "presentation/component/atoms/FormControl";
 
 const StartMining = (props) => {
 	return (
-		<div className={style.start}>
+		<section className={style.start} id="contact">
 			<div className="container">
 				<div className={style.box}>
 					<div className={style.text}>
@@ -38,7 +38,7 @@ const StartMining = (props) => {
 					</form>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

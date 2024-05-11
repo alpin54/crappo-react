@@ -6,7 +6,7 @@ import Button from "presentation/component/atoms/Button";
 
 const GrowProfit = (props) => {
 	return (
-		<div className={style.grow}>
+		<section className={style.grow}>
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
@@ -23,7 +23,7 @@ const GrowProfit = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

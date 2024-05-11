@@ -5,19 +5,21 @@ import Default from "presentation/component/templates/Default";
 import HeroBannerWidget from "infrastructure/widgets/HeroBannerWidget";
 import FeaturesWidget from "infrastructure/widgets/FeaturesWidget";
 import WhyCrappoWidget from "infrastructure/widgets/WhyCrappoWidget";
+import CryptoWidget from "infrastructure/widgets/CryptoWidget";
+import InvestSmartWidget from "infrastructure/widgets/InvestSmartWidget";
 
 // -- components
 import Calculate from "presentation/component/organisms/Calculate";
-import Crypto from "presentation/component/organisms/Crypto";
-import Market from "presentation/component/organisms/Market";
+// import Crypto from "presentation/component/organisms/Crypto";
+// import Market from "presentation/component/organisms/Market";
 import Statistics from "presentation/component/organisms/Statistics";
 import GrowProfit from "presentation/component/organisms/GrowProfit";
 import StartMining from "presentation/component/organisms/StartMining";
 
 // -- dummy data
 import calculateData from "./dummyData/calculateData";
-import cryptoData from "./dummyData/cryptoData";
-import marketData from "./dummyData/marketData";
+// import cryptoData from "./dummyData/cryptoData";
+// import marketData from "./dummyData/marketData";
 import statisticsData from "./dummyData/statisticsData";
 import growProfitData from "./dummyData/growProfitData";
 import startMiningData from "./dummyData/startMiningData";
@@ -29,8 +31,8 @@ const Home = () => {
 			<FeaturesWidget />
 			<WhyCrappoWidget />
 			<Calculate {...calculateData} />
-			<Crypto {...cryptoData} />
-			<Market {...marketData} />
+			<CryptoWidget />
+			<InvestSmartWidget />
 			<Statistics {...statisticsData} />
 			<GrowProfit {...growProfitData} />
 			<StartMining {...startMiningData} />

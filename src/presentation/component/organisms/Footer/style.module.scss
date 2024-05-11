@@ -115,7 +115,7 @@
 			width: 80px;
 		}
 	}
-	&Img {
+	&Icon {
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -164,12 +164,14 @@
 		transition: all 0.3s ease;
 		@include font-size(h3m);
 		color: color(white);
-		i {
+		img {
 			position: absolute;
 			left: 50%;
 			top: 50%;
 			z-index: zi(footer-sosmed-icon);
 			transform: translate(-50%, -50%);
+			width: 24px;
+			height: 24px;
 		}
 		&:global(.facebook) {
 			&:hover {

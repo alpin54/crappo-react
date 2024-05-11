@@ -12,6 +12,7 @@
 	border-radius: 50%;
 	overflow: hidden;
 	margin-right: 24px;
+	color: color(accent);
 	background-color: rgba(color(white), 0.1);
 	@include large {
 		width: 64px;

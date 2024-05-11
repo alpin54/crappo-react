@@ -162,19 +162,19 @@
 		padding-top: 12px;
 		padding-bottom: 12px;
 	}
-	&:last-child {
-		margin-right: 0;
-		margin-left: 32px;
-		padding-right: 24px;
-		border-right: solid 1px color(grey, 4);
-		font-weight: fw(medium);
-		@include medium {
-			margin: 0;
-			padding-right: 0;
-			border-right: 0;
-			font-weight: fw(regular);
-		}
-	}
+	// &:last-child {
+	// 	margin-right: 0;
+	// 	margin-left: 32px;
+	// 	padding-right: 24px;
+	// 	border-right: solid 1px color(grey, 4);
+	// 	font-weight: fw(medium);
+	// 	@include medium {
+	// 		margin: 0;
+	// 		padding-right: 0;
+	// 		border-right: 0;
+	// 		font-weight: fw(regular);
+	// 	}
+	// }
 }
 .active {
 	font-weight: fw(medium);
@@ -213,36 +213,79 @@
 		padding: 4px 8px;
 	}
 }
-.btn {
+.auth {
 	float: right;
-	margin-left: 24px;
+	display: flex;
+	margin-left: 32px;
 	@include medium {
 		float: left;
 		margin-left: 0;
 		margin-right: 12px;
 	}
-	a {
-		padding: 11px 32px;
+	&Item {
+		position: relative;
+		padding-right: 24px;
+		margin-right: 24px;
 		@include medium {
-			position: relative;
-			min-width: auto;
-			padding: 0;
-			border-radius: 50%;
-			width: 40px;
-			height: 40px;
-			margin-left: 0;
-			background-color: color(accent);
-			span {
-				display: none;
+			display: none;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1px;
+			height: 24px;
+			background-color: color(grey, 4);
+			@include medium {
+				content: none;
+			}
+		}
+		&:first-child {
+			a {
+				background-color: transparent;
+				padding: 11px 0;
+				min-width: auto;
+				&:hover {
+					border-color: transparent;
+				}
+			}
+		}
+		&:last-child {
+			border-right: 0;
+			padding-right: 0;
+			margin-right: 0;
+			@include medium {
+				display: block;
 			}
 			&::before {
-				content: "\e903";
-				font-family: "Crappo";
-				@include font-size(h4);
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
+				content: none;
+			}
+			a {
+				padding: 11px 32px;
+				@include medium {
+					position: relative;
+					min-width: auto;
+					padding: 0;
+					border-radius: 50%;
+					width: 40px;
+					height: 40px;
+					margin-left: 0;
+					background-color: color(accent);
+					span {
+						display: none;
+					}
+					&::before {
+						content: "\e903";
+						font-family: "Crappo";
+						@include font-size(h4);
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translate(-50%, -50%);
+					}
+				}
 			}
 		}
 	}

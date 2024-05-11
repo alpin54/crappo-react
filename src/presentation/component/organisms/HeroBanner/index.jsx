@@ -1,4 +1,4 @@
-// -- react
+// -- core
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
 
@@ -44,7 +44,7 @@ const HeroBanner = (props) => {
 	}
 
 	return (
-		<div className={classNameSingle}>
+		<section className={classNameSingle}>
 			{props.list.length === 1 ? (
 				props.list.map((val, idx) => {
 					return (
@@ -73,7 +73,7 @@ const HeroBanner = (props) => {
 						})}
 				</Slider>
 			)}
-		</div>
+		</section>
 	);
 };
 

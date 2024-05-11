@@ -68,7 +68,7 @@
 	@include small {
 		margin-bottom: 16px;
 	}
-	.el {
+	img {
 		display: block;
 		height: 80px;
 		@include medium {
@@ -87,13 +87,13 @@
 	@include small {
 		@include font-size(h4);
 	}
-}
-.subttl {
-	display: inline-block;
-	vertical-align: middle;
-	color: color(grey, 2);
-	@include font-size(h5);
-	margin-left: 8px;
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		color: color(grey, 2);
+		@include font-size(h5);
+		margin-left: 8px;
+	}
 }
 .desc {
 	color: color(grey, 1);

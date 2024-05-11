@@ -18,6 +18,8 @@ const Button = (props) => {
 		variantStyle += " " + style.btnAccent;
 	} else if (variant === "white") {
 		variantStyle += " " + style.btnWhite;
+	} else if (category === "outline") {
+		variantStyle += " " + style.btnOutline;
 	}
 
 	if (category === "icon") {

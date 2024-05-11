@@ -6,7 +6,7 @@ import Button from "presentation/component/atoms/Button";
 
 const WhyCrappo = ({ data }) => {
 	return (
-		<div className={style.crappo}>
+		<section className={style.crappo}>
 			<div className={style.container}>
 				<div className={style.inner}>
 					<div className={style.img}>
@@ -26,7 +26,7 @@ const WhyCrappo = ({ data }) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

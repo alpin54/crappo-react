@@ -28,7 +28,7 @@
 			line-height: 1;
 			background-color: color(white);
 			border-radius: 50%;
-			transition: color 0.3s ease;
+			transition: all 0.3s ease;
 		}
 		&.btn {
 			&Primary {
@@ -144,5 +144,8 @@
 				@include font-size(h3);
 			}
 		}
+	}
+	&Outline {
+		background-color: transparent;
 	}
 }

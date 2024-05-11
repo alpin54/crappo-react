@@ -25,7 +25,7 @@ const Calculate = (props) => {
 		},
 	];
 	return (
-		<div className={style.calculate}>
+		<section className={style.calculate}>
 			<div className="container">
 				<div className={style.head}>
 					<h2 className={style.title}>{props.title}</h2>
@@ -56,7 +56,7 @@ const Calculate = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
