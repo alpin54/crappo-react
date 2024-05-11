@@ -6,9 +6,9 @@ import httpRequest from "infrastructure/api/httpRequest";
 import ENDPOINT from "infrastructure/api/endPoint";
 
 // -- organisms
-import Features from "presentation/component/organisms/Features";
+import Numbers from "presentation/component/organisms/Numbers";
 
-const FeaturesWidget = () => {
+const NumbersWidget = () => {
 	// state
 	const [data, setData] = useState([]);
 
@@ -25,7 +25,7 @@ const FeaturesWidget = () => {
 		}
 	}, [getData]);
 
-	return <Features data={data} />;
+	return <Numbers data={data} />;
 };
 
-export default FeaturesWidget;
+export default NumbersWidget;

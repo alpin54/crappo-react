@@ -4,7 +4,7 @@ import style from "./style.module.scss";
 // -- atom
 import SystemIcon from "presentation/component/atoms/SystemIcon";
 
-const FeaturesItem = (props) => {
+const NumbersItem = (props) => {
 	return (
 		<div className={style.item}>
 			<div className={style.icon}>
@@ -18,4 +18,4 @@ const FeaturesItem = (props) => {
 	);
 };
 
-export default FeaturesItem;
+export default NumbersItem;

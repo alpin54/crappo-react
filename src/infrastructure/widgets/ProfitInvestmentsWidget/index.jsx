@@ -6,27 +6,23 @@ import httpRequest from "infrastructure/api/httpRequest";
 import ENDPOINT from "infrastructure/api/endPoint";
 
 // -- organisms
-import InvestSmart from "presentation/component/organisms/InvestSmart";
+import ProfitInvestments from "presentation/component/organisms/ProfitInvestments";
 
-const InvestSmartWidget = () => {
+const ProfitInvestmentsWidget = () => {
 	// state
 	const [data, setData] = useState({
 		title: "",
-		section: {
-			title: "",
-			description: "",
-			images: [],
-			code: "",
-			button: {
-				to: "",
-				text: "",
-			},
+		image: "",
+		description: "",
+		button: {
+			to: "",
+			text: "",
 		},
 	});
 
 	// call API
 	const { data: getData } = httpRequest({
-		url: ENDPOINT.INVEST_SMART,
+		url: ENDPOINT.PROFIT_INVESTMENTS,
 		method: "get",
 	});
 
@@ -37,7 +33,7 @@ const InvestSmartWidget = () => {
 		}
 	}, [getData]);
 
-	return <InvestSmart data={data} />;
+	return <ProfitInvestments data={data} />;
 };
 
-export default InvestSmartWidget;
+export default ProfitInvestmentsWidget;

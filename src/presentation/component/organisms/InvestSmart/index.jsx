@@ -4,11 +4,9 @@ import style from "./style.module.scss";
 // -- atoms
 import Button from "presentation/component/atoms/Button";
 
-const Market = ({ data }) => {
-	console.log(data);
-
+const InvestSmart = ({ data }) => {
 	return (
-		<section className={style.market} id="about">
+		<section className={style.invest} id="about">
 			<div className="container">
 				<div className={style.head}>
 					<h2 className={style.title}>{data.title}</h2>
@@ -34,4 +32,4 @@ const Market = ({ data }) => {
 	);
 };
 
-export default Market;
+export default InvestSmart;

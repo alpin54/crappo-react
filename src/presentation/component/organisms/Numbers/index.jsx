@@ -2,17 +2,17 @@
 import style from "./style.module.scss";
 
 // -- molecule
-import FeaturesItem from "presentation/component/molecules/FeaturesItem";
+import NumbersItem from "presentation/component/molecules/NumbersItem";
 
-const Features = ({ data }) => {
+const Numbers = ({ data }) => {
 	return (
-		<section className={style.features} id="features">
+		<section className={style.numbers}>
 			<div className="container">
 				<div className={style.list}>
 					{data.map((val, idx) => {
 						return (
 							<div className={style.item} key={`f-${idx}`}>
-								<FeaturesItem {...val} />
+								<NumbersItem {...val} />
 							</div>
 						);
 					})}
@@ -22,4 +22,4 @@ const Features = ({ data }) => {
 	);
 };
 
-export default Features;
+export default Numbers;

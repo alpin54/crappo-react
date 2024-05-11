@@ -4,20 +4,20 @@ import style from "./style.module.scss";
 // -- atoms
 import Button from "presentation/component/atoms/Button";
 
-const GrowProfit = (props) => {
+const ProfitInvestments = ({ data }) => {
 	return (
-		<section className={style.grow}>
+		<section className={style.profit}>
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
-						<img src={props.img} alt={props.title} />
+						<img src={data.image} alt={data.title} />
 					</div>
 					<div className={style.text}>
 						<div className={style.wrapper}>
-							<h2 className={style.textTitle}>{props.title}</h2>
-							<p className={style.textDesc}>{props.desc}</p>
-							<Button variant="accent" to={props.btn.to}>
-								{props.btn.text}
+							<h2 className={style.textTitle}>{data.title}</h2>
+							<p className={style.textDesc}>{data.description}</p>
+							<Button variant="accent" to={data.button.to}>
+								{data.button.text}
 							</Button>
 						</div>
 					</div>
@@ -27,4 +27,4 @@ const GrowProfit = (props) => {
 	);
 };
 
-export default GrowProfit;
+export default ProfitInvestments;

@@ -153,7 +153,11 @@
 			@include font-size(h4);
 		}
 		span {
-			color: color(accent);
+			margin-right: 8px;
+			&:last-child {
+				margin-right: 0;
+				color: color(accent);
+			}
 		}
 	}
 	&Desc {
