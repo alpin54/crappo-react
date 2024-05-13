@@ -1,10 +1,5 @@
 // -- core
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-// -- api
-import httpRequest from "infrastructure/api/httpRequest";
-import ENDPOINT from "infrastructure/api/endPoint";
 
 // -- style
 import style from "./style.module.scss";
@@ -12,32 +7,7 @@ import style from "./style.module.scss";
 // -- molecules
 import FooterItem from "presentation/component/molecules/FooterItem";
 
-const Footer = () => {
-	// state
-	const [data, setData] = useState({
-		brand: {},
-		copyright: "",
-		menu: [],
-		payments: {
-			title: "",
-			list: [],
-		},
-		social_media: [],
-	});
-
-	// call API
-	const { data: getData } = httpRequest({
-		url: ENDPOINT.FOOTER,
-		method: "get",
-	});
-
-	// use effect
-	useEffect(() => {
-		if (getData?.data) {
-			setData(getData?.data);
-		}
-	}, [getData]);
-
+const Footer = ({ ready, data, error }) => {
 	return (
 		<footer className={style.footer}>
 			<div className="container">

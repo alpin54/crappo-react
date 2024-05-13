@@ -13,7 +13,11 @@ const CalculateWidget = () => {
 	const [data, setData] = useState([]);
 
 	// call API
-	const { data: getData } = httpRequest({
+	const {
+		data: getData,
+		error: getError,
+		ready: getReady,
+	} = httpRequest({
 		url: ENDPOINT.CALCULATE,
 		method: "get",
 	});
@@ -33,7 +37,7 @@ const CalculateWidget = () => {
 		}
 	}, [getData]);
 
-	return <Calculate data={data} />;
+	return <Calculate data={data} error={getError} ready={getReady} />;
 };
 
 export default CalculateWidget;

@@ -21,7 +21,11 @@ const WhyCrappoWidget = () => {
 	});
 
 	// call API
-	const { data: getData } = httpRequest({
+	const {
+		ready: getReady,
+		data: getData,
+		error: getError,
+	} = httpRequest({
 		url: ENDPOINT.WHY_CRAPPO,
 		method: "get",
 	});
@@ -33,7 +37,7 @@ const WhyCrappoWidget = () => {
 		}
 	}, [getData]);
 
-	return <WhyCrappo data={data} />;
+	return <WhyCrappo ready={getReady} data={data} error={getError} />;
 };
 
 export default WhyCrappoWidget;

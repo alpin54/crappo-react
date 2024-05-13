@@ -2,37 +2,13 @@
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-// -- api
-import httpRequest from "infrastructure/api/httpRequest";
-import ENDPOINT from "infrastructure/api/endPoint";
-
 // -- style
 import style from "./style.module.scss";
 
 // -- atoms
 import Button from "presentation/component/atoms/Button";
 
-const Header = ({ activeMenu }) => {
-	// state
-	const [data, setData] = useState({
-		brand: {},
-		main_menu: [],
-		auth_menu: [],
-	});
-
-	// call API
-	const { data: getData } = httpRequest({
-		url: ENDPOINT.HEADER,
-		method: "get",
-	});
-
-	// use effect
-	useEffect(() => {
-		if (getData?.data) {
-			setData(getData?.data);
-		}
-	}, [getData]);
-
+const Header = ({ activeMenu, ready, data, error }) => {
 	// show navigation menu
 	const [showNavigation, setShowNavigation] = useState(false);
 	const handleToggleNavigation = () => {
@@ -116,7 +92,7 @@ const Header = ({ activeMenu }) => {
 										<Link
 											to={val.to}
 											className={
-												activeMenu === val.active
+												activeMenu === val.text.toLowerCase()
 													? `${style.link} ${style.active}`
 													: style.link
 											}

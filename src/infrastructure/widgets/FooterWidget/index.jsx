@@ -6,11 +6,20 @@ import httpRequest from "infrastructure/api/httpRequest";
 import ENDPOINT from "infrastructure/api/endPoint";
 
 // -- organisms
-import Numbers from "presentation/component/organisms/Numbers";
+import Footer from "presentation/component/organisms/Footer";
 
-const NumbersWidget = () => {
+const FooterWidget = () => {
 	// state
-	const [data, setData] = useState([]);
+	const [data, setData] = useState({
+		brand: {},
+		copyright: "",
+		menu: [],
+		payments: {
+			title: "",
+			list: [],
+		},
+		social_media: [],
+	});
 
 	// call API
 	const {
@@ -18,18 +27,18 @@ const NumbersWidget = () => {
 		data: getData,
 		error: getError,
 	} = httpRequest({
-		url: ENDPOINT.NUMBERS,
+		url: ENDPOINT.FOOTER,
 		method: "get",
 	});
 
 	// use effect
 	useEffect(() => {
-		if (getData?.data?.length) {
+		if (getData?.data) {
 			setData(getData?.data);
 		}
 	}, [getData]);
 
-	return <Numbers ready={getReady} data={data} error={getError} />;
+	return <Footer ready={getReady} data={data} error={getError} />;
 };
 
-export default NumbersWidget;
+export default FooterWidget;

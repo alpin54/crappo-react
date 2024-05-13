@@ -21,7 +21,11 @@ const StatisticsWidget = () => {
 	});
 
 	// call API
-	const { data: getData } = httpRequest({
+	const {
+		ready: getReady,
+		data: getData,
+		error: getError,
+	} = httpRequest({
 		url: ENDPOINT.STATISTICS,
 		method: "get",
 	});
@@ -33,7 +37,7 @@ const StatisticsWidget = () => {
 		}
 	}, [getData]);
 
-	return <Statistics data={data} />;
+	return <Statistics ready={getReady} data={data} error={getError} />;
 };
 
 export default StatisticsWidget;

@@ -12,7 +12,7 @@ import style from "./style.module.scss";
 // -- molecule
 import HeroBannerItem from "presentation/component/molecules/HeroBannerItem";
 
-const HeroBanner = (props) => {
+const HeroBanner = ({ ready, data, error }) => {
 	const [showSingle, setShowSingle] = useState(false);
 
 	useEffect(() => {
@@ -37,42 +37,62 @@ const HeroBanner = (props) => {
 	};
 
 	let classNameSingle = style.banner;
-	if (props.list.length === 1) {
-		if (showSingle) {
-			classNameSingle += " banner-single";
+	if (ready && error !== null) {
+		if (data.length === 1) {
+			if (showSingle) {
+				classNameSingle += " banner-single";
+			}
 		}
 	}
 
-	return (
-		<section className={classNameSingle}>
-			{props.list.length === 1 ? (
-				props.list.map((val, idx) => {
+	if (error !== null) {
+		return <h2>{error.message}</h2>;
+	}
+
+	if (!ready) {
+		return (
+			<section className="sc-placeholder">
+				<div className="container">
+					<h2>Data sedang dimuat!</h2>
+				</div>
+			</section>
+		);
+	}
+
+	if (data.length === 1) {
+		return (
+			<section className={classNameSingle}>
+				{data.map((val, idx) => {
 					return (
 						<div className={style.item} key={`hb-${idx}`}>
 							<div className={style.middleAlign}>
 								<div className="container">
-									<HeroBannerItem {...val} />
+									<HeroBannerItem data={val} />
 								</div>
 							</div>
 						</div>
 					);
-				})
-			) : (
-				<Slider {...settings}>
-					{showSingle &&
-						props.list.map((val, idx) => {
-							return (
-								<div className={style.item} key={`hb-${idx}`}>
-									<div className={style.middleAlign}>
-										<div className="container">
-											<HeroBannerItem {...val} />
-										</div>
+				})}
+			</section>
+		);
+	}
+
+	return (
+		<section className={classNameSingle}>
+			<Slider {...settings}>
+				{showSingle &&
+					data.map((val, idx) => {
+						return (
+							<div className={style.item} key={`hb-${idx}`}>
+								<div className={style.middleAlign}>
+									<div className="container">
+										<HeroBannerItem data={val} />
 									</div>
 								</div>
-							);
-						})}
-				</Slider>
-			)}
+							</div>
+						);
+					})}
+			</Slider>
 		</section>
 	);
 };

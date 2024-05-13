@@ -13,7 +13,11 @@ const HeroBannerWidget = () => {
 	const [data, setData] = useState([]);
 
 	// call API
-	const { data: getData } = httpRequest({
+	const {
+		ready: getReady,
+		data: getData,
+		error: getError,
+	} = httpRequest({
 		url: ENDPOINT.HERO_BANNER,
 		method: "get",
 	});
@@ -42,7 +46,7 @@ const HeroBannerWidget = () => {
 		}
 	}, [getData]);
 
-	return <HeroBanner list={data} />;
+	return <HeroBanner ready={getReady} data={data} error={getError} />;
 };
 
 export default HeroBannerWidget;

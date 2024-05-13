@@ -6,11 +6,15 @@ import httpRequest from "infrastructure/api/httpRequest";
 import ENDPOINT from "infrastructure/api/endPoint";
 
 // -- organisms
-import Numbers from "presentation/component/organisms/Numbers";
+import Header from "presentation/component/organisms/Header";
 
-const NumbersWidget = () => {
+const HeaderWidget = ({ activeMenu }) => {
 	// state
-	const [data, setData] = useState([]);
+	const [data, setData] = useState({
+		brand: {},
+		main_menu: [],
+		auth_menu: [],
+	});
 
 	// call API
 	const {
@@ -18,18 +22,25 @@ const NumbersWidget = () => {
 		data: getData,
 		error: getError,
 	} = httpRequest({
-		url: ENDPOINT.NUMBERS,
+		url: ENDPOINT.HEADER,
 		method: "get",
 	});
 
 	// use effect
 	useEffect(() => {
-		if (getData?.data?.length) {
+		if (getData?.data) {
 			setData(getData?.data);
 		}
 	}, [getData]);
 
-	return <Numbers ready={getReady} data={data} error={getError} />;
+	return (
+		<Header
+			activeMenu={activeMenu}
+			ready={getReady}
+			data={data}
+			error={getError}
+		/>
+	);
 };
 
-export default NumbersWidget;
+export default HeaderWidget;

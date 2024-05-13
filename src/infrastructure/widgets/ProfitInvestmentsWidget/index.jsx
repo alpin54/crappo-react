@@ -21,7 +21,11 @@ const ProfitInvestmentsWidget = () => {
 	});
 
 	// call API
-	const { data: getData } = httpRequest({
+	const {
+		ready: getReady,
+		data: getData,
+		error: getError,
+	} = httpRequest({
 		url: ENDPOINT.PROFIT_INVESTMENTS,
 		method: "get",
 	});
@@ -33,7 +37,7 @@ const ProfitInvestmentsWidget = () => {
 		}
 	}, [getData]);
 
-	return <ProfitInvestments data={data} />;
+	return <ProfitInvestments ready={getReady} data={data} error={getError} />;
 };
 
 export default ProfitInvestmentsWidget;

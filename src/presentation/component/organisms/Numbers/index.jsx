@@ -4,7 +4,21 @@ import style from "./style.module.scss";
 // -- molecule
 import NumbersItem from "presentation/component/molecules/NumbersItem";
 
-const Numbers = ({ data }) => {
+const Numbers = ({ ready, data, error }) => {
+	if (error !== null) {
+		return <h2>{error.message}</h2>;
+	}
+
+	if (!ready) {
+		return (
+			<section className="sc-placeholder">
+				<div className="container">
+					<h2>Data sedang dimuat!</h2>
+				</div>
+			</section>
+		);
+	}
+
 	return (
 		<section className={style.numbers}>
 			<div className="container">
@@ -12,7 +26,7 @@ const Numbers = ({ data }) => {
 					{data.map((val, idx) => {
 						return (
 							<div className={style.item} key={`f-${idx}`}>
-								<NumbersItem {...val} />
+								<NumbersItem data={val} />
 							</div>
 						);
 					})}

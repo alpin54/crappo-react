@@ -8,9 +8,7 @@ import style from "./style.module.scss";
 // -- hooks
 import useDeviceSize from "core/hooks/useDeviceSize";
 
-const FooterItem = (props) => {
-	const { title, list } = props;
-
+const FooterItem = ({ title, list }) => {
 	const [width] = useDeviceSize();
 
 	const [isActive, setIsActive] = useState(false);

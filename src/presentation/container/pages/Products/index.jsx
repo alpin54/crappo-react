@@ -12,11 +12,11 @@ import StatisticsWidget from "infrastructure/widgets/StatisticsWidget";
 import ProfitInvestmentsWidget from "infrastructure/widgets/ProfitInvestmentsWidget";
 
 // -- components
-import StartMining from "presentation/component/organisms/StartMining";
+// import StartMining from "presentation/component/organisms/StartMining";
 
-const Home = () => {
+const Products = () => {
 	return (
-		<Default activeMenu="home">
+		<Default activeMenu="products">
 			<HeroBannerWidget />
 			<NumbersWidget />
 			<WhyCrappoWidget />
@@ -25,9 +25,8 @@ const Home = () => {
 			<InvestSmartWidget />
 			<StatisticsWidget />
 			<ProfitInvestmentsWidget />
-			<StartMining />
 		</Default>
 	);
 };
 
-export default Home;
+export default Products;

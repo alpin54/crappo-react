@@ -25,7 +25,11 @@ const InvestSmartWidget = () => {
 	});
 
 	// call API
-	const { data: getData } = httpRequest({
+	const {
+		ready: getReady,
+		data: getData,
+		error: getError,
+	} = httpRequest({
 		url: ENDPOINT.INVEST_SMART,
 		method: "get",
 	});
@@ -37,7 +41,7 @@ const InvestSmartWidget = () => {
 		}
 	}, [getData]);
 
-	return <InvestSmart data={data} />;
+	return <InvestSmart ready={getReady} data={data} error={getError} />;
 };
 
 export default InvestSmartWidget;

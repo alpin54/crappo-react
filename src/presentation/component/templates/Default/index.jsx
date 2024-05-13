@@ -2,9 +2,9 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-// -- components
-import Header from "presentation/component/organisms/Header";
-import Footer from "presentation/component/organisms/Footer";
+// -- widgets
+import HeaderWidget from "infrastructure/widgets/HeaderWidget";
+import FooterWidget from "infrastructure/widgets/FooterWidget";
 
 const Default = ({ activeMenu, children }) => {
 	const { pathname } = useLocation();
@@ -15,9 +15,9 @@ const Default = ({ activeMenu, children }) => {
 
 	return (
 		<>
-			<Header activeMenu={activeMenu} />
+			<HeaderWidget activeMenu={activeMenu} />
 			<main className="main">{children}</main>
-			<Footer />
+			<FooterWidget />
 		</>
 	);
 };
