@@ -1,52 +1,13 @@
-// -- core
-import { useEffect, useState } from "react";
-
-// -- api
-import httpRequest from "infrastructure/api/httpRequest";
-import ENDPOINT from "infrastructure/api/endPoint";
+// -- models
+import heroBannerModel from "core/models/heroBanner";
 
 // -- organisms
 import HeroBanner from "presentation/component/organisms/HeroBanner";
 
 const HeroBannerWidget = () => {
-	// state
-	const [data, setData] = useState([]);
+	const { ready, data, error } = heroBannerModel.list();
 
-	// call API
-	const {
-		ready: getReady,
-		data: getData,
-		error: getError,
-	} = httpRequest({
-		url: ENDPOINT.HERO_BANNER,
-		method: "get",
-	});
-
-	// use effect
-	useEffect(() => {
-		if (getData?.data?.length) {
-			let transformData = [];
-			getData?.data.forEach((val) => {
-				transformData.push({
-					img: val.image,
-					title: val.title,
-					desc: val.description,
-					sale: {
-						title: val.label.badge,
-						desc: val.label.description,
-					},
-					btn: {
-						to: val.button.to,
-						text: val.button.text,
-					},
-				});
-			});
-
-			setData(transformData);
-		}
-	}, [getData]);
-
-	return <HeroBanner ready={getReady} data={data} error={getError} />;
+	return <HeroBanner ready={ready} data={data?.data} error={error} />;
 };
 
 export default HeroBannerWidget;

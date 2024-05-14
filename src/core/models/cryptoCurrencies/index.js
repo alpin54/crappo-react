@@ -1,9 +1,10 @@
 // -- api
 import httpRequest from "infrastructure/api/httpRequest";
+import ENDPOINT from "infrastructure/api/endPoint";
 
 const handleList = () => {
 	const { ready, data, error } = httpRequest({
-		url: "https://x-api.alpha-x.id/v1/crappo/cryptocurrencies",
+		url: ENDPOINT.CRYPTOCURRENCIES,
 		method: "get",
 	});
 

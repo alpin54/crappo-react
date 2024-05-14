@@ -36,15 +36,6 @@ const HeroBanner = ({ ready, data, error }) => {
 		slidesToScroll: 1,
 	};
 
-	let classNameSingle = style.banner;
-	if (ready && error !== null) {
-		if (data.length === 1) {
-			if (showSingle) {
-				classNameSingle += " banner-single";
-			}
-		}
-	}
-
 	if (error !== null) {
 		return <h2>{error.message}</h2>;
 	}
@@ -57,6 +48,15 @@ const HeroBanner = ({ ready, data, error }) => {
 				</div>
 			</section>
 		);
+	}
+
+	let classNameSingle = style.banner;
+	if (ready && error !== null) {
+		if (data.length === 1) {
+			if (showSingle) {
+				classNameSingle += " banner-single";
+			}
+		}
 	}
 
 	if (data.length === 1) {
