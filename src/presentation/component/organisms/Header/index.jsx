@@ -12,16 +12,17 @@ import style from "./style.module.scss";
 // -- atoms
 import Button from "presentation/component/atoms/Button";
 
-const Header = ({ activeMenu, ready, data }) => {
+const Header = (props) => {
 	const { total } = useStateSubscribe();
 	const { menu } = useStateHeader();
 
 	// data is loading
-	if (!ready) {
+	if (!props.ready) {
 		<div className="container">
 			<h5>data sedang dimuat</h5>
 		</div>;
 	}
+
 	// show navigation menu
 	const [showNavigation, setShowNavigation] = useState(false);
 	const handleToggleNavigation = () => {
@@ -88,10 +89,10 @@ const Header = ({ activeMenu, ready, data }) => {
 				<div className={style.inner} ref={ref}>
 					{/* Logo */}
 					<div className={style.logo}>
-						<Link to={data?.brand.to} className={style.logoLink}>
+						<Link to={props.data?.brand.to} className={style.logoLink}>
 							<img
-								src={data?.brand.logo}
-								alt={data?.brand.name}
+								src={props.data?.brand.logo}
+								alt={props.data?.brand.name}
 								className={style.logoImg}
 							/>
 						</Link>
@@ -100,7 +101,7 @@ const Header = ({ activeMenu, ready, data }) => {
 					<div className={style.nav}>
 						<div className={style.menu}>
 							<ul className={style.list}>
-								{data?.main_menu.map((val, idx) => (
+								{props.data?.main_menu.map((val, idx) => (
 									<li className={style.item} key={`hm-${idx}`}>
 										<Link
 											to={val.to}
@@ -117,7 +118,7 @@ const Header = ({ activeMenu, ready, data }) => {
 							</ul>
 						</div>
 						<div className={style.auth}>
-							{data?.auth_menu.map((val, idx) => (
+							{props.data?.auth_menu.map((val, idx) => (
 								<div className={style.authItem} key={`am-${idx}`}>
 									<Button to={val.to} variant="accent">
 										<span>{val.text}</span>

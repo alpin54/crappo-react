@@ -18,7 +18,7 @@ import SubsribeWidget from "infrastructure/widgets/SubscribeWidget";
 // import StatisticsWidget from "infrastructure/widgets/StatisticsWidget";
 // import ProfitInvestmentsWidget from "infrastructure/widgets/ProfitInvestmentsWidget";
 
-const Home = (props) => {
+const Home = () => {
 	const { setMenu } = useStateHeader();
 
 	useState(() => {

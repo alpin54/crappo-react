@@ -4,8 +4,8 @@ import style from "./style.module.scss";
 // -- atoms
 import Button from "presentation/component/atoms/Button";
 
-const WhyCrappo = ({ ready, data, error }) => {
-	if (!ready) {
+const WhyCrappo = (props) => {
+	if (!props.ready) {
 		return (
 			<div className={style.placeholder}>
 				<div className="container">
@@ -33,18 +33,22 @@ const WhyCrappo = ({ ready, data, error }) => {
 			<div className={style.container}>
 				<div className={style.inner}>
 					<div className={style.img}>
-						<img className={style.el} src={data.image} alt={data.title} />
+						<img
+							className={style.el}
+							src={props.data.image}
+							alt={props.data.title}
+						/>
 					</div>
 					<div className={style.text}>
-						<h2 className={style.title}>{data.title}</h2>
-						<p className={style.desc}>{data.description}</p>
+						<h2 className={style.title}>{props.data.title}</h2>
+						<p className={style.desc}>{props.data.description}</p>
 						<Button
 							variant="accent"
 							category="icon"
-							to={data.button?.to}
+							to={props.data.button?.to}
 							icon="chevron-right"
 						>
-							{data.button?.text}
+							{props.data.button?.text}
 						</Button>
 					</div>
 				</div>

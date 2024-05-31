@@ -1,16 +1,16 @@
 // -- style
-import FormControl from "presentation/component/atoms/FormControl";
 import style from "./style.module.scss";
 
 // -- atoms
+import FormControl from "presentation/component/atoms/FormControl";
 import Button from "presentation/component/atoms/Button";
 
-const Calculate = ({ ready, data, error }) => {
-	if (error !== null) {
-		return <h2>{error.message}</h2>;
+const Calculate = (props) => {
+	if (props.error !== null) {
+		return <h2>{props.error.message}</h2>;
 	}
 
-	if (!ready) {
+	if (!props.ready) {
 		return (
 			<section className="sc-placeholder">
 				<div className="container">
@@ -40,7 +40,7 @@ const Calculate = ({ ready, data, error }) => {
 							/>
 						</div>
 						<div className={style.row}>
-							<FormControl variant="select" name="date" list={data} />
+							<FormControl variant="select" name="date" list={props.data} />
 						</div>
 						<div className={style.row}>
 							<Button type="button" variant="accent">

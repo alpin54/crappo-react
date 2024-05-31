@@ -4,27 +4,27 @@ import style from "./style.module.scss";
 // -- atom
 import Button from "presentation/component/atoms/Button";
 
-const HeroBannerItem = ({ data }) => {
+const HeroBannerItem = (props) => {
 	return (
 		<div className={style.banner}>
 			<div className={style.img}>
-				<img className={style.el} src={data.img} alt={data.title} />
+				<img className={style.el} src={props.data.img} alt={props.data.title} />
 			</div>
 			<div className={style.text}>
 				<div className={style.sale}>
-					<p className={style.saleTitle}>{data.sale.title}</p>
-					<p className={style.saleDesc}>{data.sale.desc}</p>
+					<p className={style.saleTitle}>{props.data.sale.title}</p>
+					<p className={style.saleDesc}>{props.data.sale.desc}</p>
 				</div>
-				<h2 className={style.title}>{data.title}</h2>
-				<p className={style.desc}>{data.desc}</p>
+				<h2 className={style.title}>{props.data.title}</h2>
+				<p className={style.desc}>{props.data.desc}</p>
 				<div className={style.btn}>
 					<Button
 						variant="accent"
 						category="icon"
-						to={data.btn.to}
+						to={props.data.btn.to}
 						icon="chevron-right"
 					>
-						{data.btn.text}
+						{props.data.btn.text}
 					</Button>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ import style from "./style.module.scss";
 // -- hooks
 import useDeviceSize from "core/hooks/useDeviceSize";
 
-const FooterItem = ({ title, list }) => {
+const FooterItem = (props) => {
 	const [width] = useDeviceSize();
 
 	const [isActive, setIsActive] = useState(false);
@@ -33,9 +33,9 @@ const FooterItem = ({ title, list }) => {
 			onClick={() => setIsActive(!isActive)}
 			style={styleActive}
 		>
-			<h3 className={style.title}>{title}</h3>
+			<h3 className={style.title}>{props.title}</h3>
 			<ul className={style.list} ref={accRef}>
-				{list.map((val, idx) => {
+				{props.list.map((val, idx) => {
 					return (
 						<li className={style.item} key={`fi-${idx}`}>
 							<Link className={style.link} href={val.to}>

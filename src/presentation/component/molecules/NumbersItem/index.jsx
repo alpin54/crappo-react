@@ -4,15 +4,15 @@ import style from "./style.module.scss";
 // -- atom
 import SystemIcon from "presentation/component/atoms/SystemIcon";
 
-const NumbersItem = ({ data }) => {
+const NumbersItem = (props) => {
 	return (
 		<div className={style.item}>
 			<div className={style.icon}>
-				<SystemIcon name={data.icon_font} />
+				<SystemIcon name={props.data.icon_font} />
 			</div>
 			<div className={style.text}>
-				<h4 className={style.title}>{data.title}</h4>
-				<p className={style.desc}>{data.description}</p>
+				<h4 className={style.title}>{props.data.title}</h4>
+				<p className={style.desc}>{props.data.description}</p>
 			</div>
 		</div>
 	);

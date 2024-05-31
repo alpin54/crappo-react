@@ -4,8 +4,8 @@ import style from "./style.module.scss";
 // -- atoms
 import CryptoItem from "presentation/component/molecules/CryptoItem";
 
-const Crypto = ({ ready, data, error }) => {
-	if (!ready) {
+const Crypto = (props) => {
+	if (!props.ready) {
 		return (
 			<section className="sc-placeholder">
 				<div className="container">
@@ -22,9 +22,9 @@ const Crypto = ({ ready, data, error }) => {
 	return (
 		<section className={style.crypto} id="products">
 			<div className="container">
-				<h2 className={style.title}>{data.title}</h2>
+				<h2 className={style.title}>{props.data.title}</h2>
 				<div className={style.list}>
-					{data.list.map((val, idx) => {
+					{props.data.list.map((val, idx) => {
 						return (
 							<div className={style.item} key={`ci-${idx}`}>
 								<CryptoItem data={val} />

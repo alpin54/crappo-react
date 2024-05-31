@@ -12,7 +12,7 @@ import style from "./style.module.scss";
 // -- molecule
 import HeroBannerItem from "presentation/component/molecules/HeroBannerItem";
 
-const HeroBanner = ({ ready, data, error }) => {
+const HeroBanner = (props) => {
 	const [showSingle, setShowSingle] = useState(false);
 
 	useEffect(() => {
@@ -36,7 +36,7 @@ const HeroBanner = ({ ready, data, error }) => {
 		slidesToScroll: 1,
 	};
 
-	if (!ready) {
+	if (!props.ready) {
 		return (
 			<section className="placeholder">
 				<div className="container">
@@ -66,23 +66,23 @@ const HeroBanner = ({ ready, data, error }) => {
 		);
 	}
 
-	// if (error !== null) {
-	// 	return <h2>{error.message}</h2>;
+	// if (props.error !== null) {
+	// 	return <h2>{props.error.message}</h2>;
 	// }
 
 	let classNameSingle = style.banner;
-	if (ready && error !== null) {
-		if (data.length === 1) {
+	if (props.ready && props.error !== null) {
+		if (props.data.length === 1) {
 			if (showSingle) {
 				classNameSingle += " banner-single";
 			}
 		}
 	}
 
-	if (data.length === 1) {
+	if (props.data.length === 1) {
 		return (
 			<section className={classNameSingle}>
-				{data.map((val, idx) => {
+				{props.data.map((val, idx) => {
 					return (
 						<div className={style.item} key={`hb-${idx}`}>
 							<div className={style.middleAlign}>
@@ -100,7 +100,7 @@ const HeroBanner = ({ ready, data, error }) => {
 	return (
 		<section className={classNameSingle}>
 			<Slider {...settings}>
-				{data.map((val, idx) => {
+				{props.data.map((val, idx) => {
 					return (
 						<div className={style.item} key={`hb-${idx}`}>
 							<div className={style.middleAlign}>
