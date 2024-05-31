@@ -5,10 +5,6 @@ import style from "./style.module.scss";
 import NumbersItem from "presentation/component/molecules/NumbersItem";
 
 const Numbers = ({ ready, data, error }) => {
-	if (error !== null) {
-		return <h2>{error.message}</h2>;
-	}
-
 	if (!ready) {
 		return (
 			<section className="sc-placeholder">
@@ -18,6 +14,10 @@ const Numbers = ({ ready, data, error }) => {
 			</section>
 		);
 	}
+
+	// if (error !== null) {
+	// 	return <h2>{error.message}</h2>;
+	// }
 
 	return (
 		<section className={style.numbers}>

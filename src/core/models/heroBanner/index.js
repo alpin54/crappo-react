@@ -3,7 +3,7 @@ import httpRequest from "infrastructure/api/httpRequest";
 import ENDPOINT from "infrastructure/api/endPoint";
 
 const handleList = () => {
-	const { ready, data, error } = httpRequest({
+	const { ready, data, error } = httpRequest.firstLoad({
 		method: "get",
 		url: ENDPOINT.HERO_BANNER,
 		transformResponse: [

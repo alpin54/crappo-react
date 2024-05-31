@@ -4,7 +4,7 @@ import ENDPOINT from "infrastructure/api/endPoint";
 const handleList = () => {
 	const { ready, data, error } = httpRequest.firstLoad({
 		method: "get",
-		url: ENDPOINT.CRYPTOCURRENCIES,
+		url: ENDPOINT.NUMBERS,
 	});
 
 	return {
@@ -14,8 +14,8 @@ const handleList = () => {
 	};
 };
 
-const cryptoCurrenciesModel = {
+const numbersModel = {
 	list: handleList,
 };
 
-export default cryptoCurrenciesModel;
+export default numbersModel;

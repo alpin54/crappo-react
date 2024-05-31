@@ -1,10 +1,6 @@
 // -- core
 import { useState } from "react";
 
-// api
-// import httpRequest from "infrastructure/api/httpRequest";
-import ENDPOINT from "infrastructure/api/endPoint";
-
 // -- style
 import style from "./style.module.scss";
 
@@ -12,30 +8,14 @@ import style from "./style.module.scss";
 import Button from "presentation/component/atoms/Button";
 import FormControl from "presentation/component/atoms/FormControl";
 
-const StartMining = () => {
-	// state
+const Subscribe = (props) => {
 	const [email, setEmail] = useState("");
+	const handleChange = (e) => {
+		setEmail(e.target.value);
+	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		try {
-			let res = await fetch(ENDPOINT.SUBSCRIBE, {
-				method: "post",
-				body: JSON.stringify({
-					email: email,
-				}),
-			});
-			let resJson = await res.json();
-			if (res.status === 200) {
-				setEmail("");
-				alert(resJson.message);
-			} else {
-				alert(resJson.message);
-			}
-		} catch (err) {
-			console.log(err);
-		}
+	const handleSubmit = () => {
+		props.onSubmit(email);
 	};
 
 	return (
@@ -48,11 +28,7 @@ const StartMining = () => {
 							Join now with CRAPPO to get the latest news and start mining now
 						</p>
 					</div>
-					<form
-						className={style.form}
-						onSubmit={handleSubmit}
-						autoComplete="off"
-					>
+					<form className={style.form} autoComplete="off">
 						<div className={style.row}>
 							<FormControl
 								color="white"
@@ -61,12 +37,11 @@ const StartMining = () => {
 								id="email"
 								placeholder="Enter your email"
 								required="required"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
+								onChange={handleChange}
 							/>
 						</div>
 						<div className={style.row}>
-							<Button type="submit" variant="white">
+							<Button type="button" variant="white" onClick={handleSubmit}>
 								Subscribe
 							</Button>
 						</div>
@@ -77,4 +52,4 @@ const StartMining = () => {
 	);
 };
 
-export default StartMining;
+export default Subscribe;

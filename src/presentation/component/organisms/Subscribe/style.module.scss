@@ -159,3 +159,45 @@
 		border-color: color(white);
 	}
 }
+
+:global(.msg-success) {
+	position: fixed;
+	z-index: 2;
+	bottom: 32px;
+	left: 50%;
+	display: inline-block;
+	padding: 24px;
+	color: color(white);
+	border-radius: 32px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translate(-50%, 100%);
+	transition: all 0.5s ease;
+	background-color: green;
+	&:global(.show) {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(-50%, 0);
+	}
+}
+
+:global(.msg-error) {
+	position: fixed;
+	z-index: 2;
+	bottom: 32px;
+	left: 50%;
+	display: inline-block;
+	padding: 24px;
+	color: color(white);
+	border-radius: 32px;
+	opacity: 0;
+	visibility: hidden;
+	transform: translate(-50%, 100%);
+	transition: all 0.5s ease;
+	background-color: red;
+	&:global(.show) {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(-50%, 0);
+	}
+}

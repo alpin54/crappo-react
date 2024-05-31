@@ -36,19 +36,39 @@ const HeroBanner = ({ ready, data, error }) => {
 		slidesToScroll: 1,
 	};
 
-	if (error !== null) {
-		return <h2>{error.message}</h2>;
-	}
-
 	if (!ready) {
 		return (
-			<section className="sc-placeholder">
+			<section className="placeholder">
 				<div className="container">
-					<h2>Data sedang dimuat!</h2>
+					<div className="placeholder-inner">
+						<div className="placeholder-img">
+							<div className="placeholder-line"></div>
+						</div>
+						<div className="placeholder-text">
+							<div className="placeholder-badge">
+								<div className="placeholder-line"></div>
+							</div>
+							<div className="placeholder-title">
+								<div className="placeholder-line"></div>
+								<div className="placeholder-line"></div>
+								<div className="placeholder-line"></div>
+							</div>
+							<div className="placeholder-desc">
+								<div className="placeholder-line"></div>
+							</div>
+							<div className="placeholder-btn">
+								<div className="placeholder-line"></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		);
 	}
+
+	// if (error !== null) {
+	// 	return <h2>{error.message}</h2>;
+	// }
 
 	let classNameSingle = style.banner;
 	if (ready && error !== null) {
@@ -80,18 +100,17 @@ const HeroBanner = ({ ready, data, error }) => {
 	return (
 		<section className={classNameSingle}>
 			<Slider {...settings}>
-				{showSingle &&
-					data.map((val, idx) => {
-						return (
-							<div className={style.item} key={`hb-${idx}`}>
-								<div className={style.middleAlign}>
-									<div className="container">
-										<HeroBannerItem data={val} />
-									</div>
+				{data.map((val, idx) => {
+					return (
+						<div className={style.item} key={`hb-${idx}`}>
+							<div className={style.middleAlign}>
+								<div className="container">
+									<HeroBannerItem data={val} />
 								</div>
 							</div>
-						);
-					})}
+						</div>
+					);
+				})}
 			</Slider>
 		</section>
 	);

@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // -- core config
-import routes from "core/config/routes";
+import routes from "core/configs/routes";
 
 const App = () => {
 	const router = createBrowserRouter(routes);

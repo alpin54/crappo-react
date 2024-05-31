@@ -1,12 +1,9 @@
 @import "core/styles/_assets.scss";
 
-.crappo {
+@mixin padding {
 	padding: 60px 0;
 	overflow: hidden;
 	background-color: color(primary);
-	@include bg-img("bg/crappo-bg.svg");
-	background-repeat: no-repeat;
-	background-size: cover;
 	@include large {
 		padding: 56px 0;
 	}
@@ -19,6 +16,14 @@
 	@include x-small {
 		padding: 32px 0;
 	}
+}
+
+.crappo {
+	background-color: color(primary);
+	@include bg-img("bg/crappo-bg.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	@include padding();
 }
 .inner {
 	display: table;
@@ -82,5 +87,55 @@
 	}
 	@include small {
 		max-width: initial;
+	}
+}
+.placeholder {
+	@include padding;
+	.inner {
+		display: flex;
+		align-items: center;
+	}
+	.img {
+		width: 50%;
+		height: 354px;
+		background-color: rgba(color(white), 0.1);
+		border-radius: 4px;
+		@include skeleton;
+	}
+	.text {
+		width: 50%;
+		padding-left: 120px;
+	}
+	.title {
+		width: 80%;
+		margin-bottom: 24px;
+		&Bar {
+			height: 56px;
+			background-color: rgba(color(white), 0.1);
+			border-radius: 4px;
+			@include skeleton;
+		}
+	}
+	.desc {
+		width: 100%;
+		margin-bottom: 32px;
+		&Bar {
+			height: 32px;
+			background-color: rgba(color(white), 0.1);
+			margin-bottom: 12px;
+			border-radius: 4px;
+			@include skeleton;
+			&:last-child {
+				width: 60%;
+				margin-bottom: 0;
+			}
+		}
+	}
+	.button {
+		width: 180px;
+		height: 60px;
+		background-color: rgba(color(white), 0.1);
+		border-radius: 30px;
+		@include skeleton;
 	}
 }

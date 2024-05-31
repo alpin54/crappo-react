@@ -14,23 +14,23 @@ const Footer = ({ ready, data, error }) => {
 				<div className={style.top}>
 					{/* Logo */}
 					<div className={style.logo}>
-						<Link to={data.brand.to} className={style.logoLink}>
+						<Link to={data?.brand.to} className={style.logoLink}>
 							<img
-								src={data.brand.logo}
-								alt={data.brand.name}
+								src={data?.brand.logo}
+								alt={data?.brand.name}
 								className={style.logoImg}
 							/>
 						</Link>
 					</div>
 					{/* Menu */}
 					<div className={style.menu}>
-						{data.menu.map((val, idx) => {
+						{data?.menu.map((val, idx) => {
 							return <FooterItem {...val} key={`fc-${idx}`} />;
 						})}
 						<div className={style.payment}>
-							<h2 className={style.paymentTitle}>{data.payments.title}</h2>
+							<h2 className={style.paymentTitle}>{data?.payments.title}</h2>
 							<ul className={style.paymentList}>
-								{data.payments.list.map((val, idx) => (
+								{data?.payments.list.map((val, idx) => (
 									<li className={style.paymentItem} key={`fp-${idx}`}>
 										<a
 											href={val.to}
@@ -50,9 +50,9 @@ const Footer = ({ ready, data, error }) => {
 					</div>
 				</div>
 				<div className={style.bottom}>
-					<p className={style.copyright}>{data.copyright}</p>
+					<p className={style.copyright}>{data?.copyright}</p>
 					<ul className={style.sosmed}>
-						{data.social_media.map((val, idx) => (
+						{data?.social_media.map((val, idx) => (
 							<li className={style.sosmedItem} key={`fs-${idx}`}>
 								<Link
 									to={val.to}

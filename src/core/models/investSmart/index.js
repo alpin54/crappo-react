@@ -2,9 +2,9 @@ import httpRequest from "infrastructure/api/httpRequest";
 import ENDPOINT from "infrastructure/api/endPoint";
 
 const handleList = () => {
-	const { ready, data, error } = httpRequest.firstLoad({
+	const { ready, data, error } = httpRequest({
 		method: "get",
-		url: ENDPOINT.CRYPTOCURRENCIES,
+		url: ENDPOINT.INVESTSMART,
 	});
 
 	return {
@@ -14,8 +14,8 @@ const handleList = () => {
 	};
 };
 
-const cryptoCurrenciesModel = {
+const investSmartModel = {
 	list: handleList,
 };
 
-export default cryptoCurrenciesModel;
+export default investSmartModel;

@@ -5,17 +5,26 @@ import style from "./style.module.scss";
 import Button from "presentation/component/atoms/Button";
 
 const WhyCrappo = ({ ready, data, error }) => {
-	if (error !== null) {
-		return <h2>{error.message}</h2>;
-	}
-
 	if (!ready) {
 		return (
-			<section className="sc-placeholder">
+			<div className={style.placeholder}>
 				<div className="container">
-					<h2>Data sedang dimuat!</h2>
+					<div className={style.inner}>
+						<div className={style.img}></div>
+						<div className={style.text}>
+							<div className={style.title}>
+								<div className={style.titleBar}></div>
+							</div>
+							<div className={style.desc}>
+								<div className={style.descBar}></div>
+								<div className={style.descBar}></div>
+								<div className={style.descBar}></div>
+							</div>
+							<div className={style.button}></div>
+						</div>
+					</div>
 				</div>
-			</section>
+			</div>
 		);
 	}
 
@@ -32,10 +41,10 @@ const WhyCrappo = ({ ready, data, error }) => {
 						<Button
 							variant="accent"
 							category="icon"
-							to={data.button.to}
+							to={data.button?.to}
 							icon="chevron-right"
 						>
-							{data.button.text}
+							{data.button?.text}
 						</Button>
 					</div>
 				</div>

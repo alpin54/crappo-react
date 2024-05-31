@@ -1,5 +1,5 @@
 // -- templates
-import Default from "presentation/component/templates/Default";
+import Default from "presentation/container/templates/Default";
 
 // components
 import NotFoundSection from "presentation/component/organisms/NotFoundSection";

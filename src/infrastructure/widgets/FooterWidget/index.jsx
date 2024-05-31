@@ -1,44 +1,13 @@
-// -- core
-import { useEffect, useState } from "react";
-
-// -- api
-import httpRequest from "infrastructure/api/httpRequest";
-import ENDPOINT from "infrastructure/api/endPoint";
+// -- models
+import footerModel from "core/models/footer";
 
 // -- organisms
 import Footer from "presentation/component/organisms/Footer";
 
 const FooterWidget = () => {
-	// state
-	const [data, setData] = useState({
-		brand: {},
-		copyright: "",
-		menu: [],
-		payments: {
-			title: "",
-			list: [],
-		},
-		social_media: [],
-	});
+	const { ready, data, error } = footerModel.list();
 
-	// call API
-	const {
-		ready: getReady,
-		data: getData,
-		error: getError,
-	} = httpRequest({
-		url: ENDPOINT.FOOTER,
-		method: "get",
-	});
-
-	// use effect
-	useEffect(() => {
-		if (getData?.data) {
-			setData(getData?.data);
-		}
-	}, [getData]);
-
-	return <Footer ready={getReady} data={data} error={getError} />;
+	return <Footer ready={ready} data={data?.data} error={error} />;
 };
 
 export default FooterWidget;

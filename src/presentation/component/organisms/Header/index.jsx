@@ -2,13 +2,26 @@
 import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// -- states
+import useStateSubscribe from "core/states/subscribe";
+import useStateHeader from "core/states/header";
+
 // -- style
 import style from "./style.module.scss";
 
 // -- atoms
 import Button from "presentation/component/atoms/Button";
 
-const Header = ({ activeMenu, ready, data, error }) => {
+const Header = ({ activeMenu, ready, data }) => {
+	const { total } = useStateSubscribe();
+	const { menu } = useStateHeader();
+
+	// data is loading
+	if (!ready) {
+		<div className="container">
+			<h5>data sedang dimuat</h5>
+		</div>;
+	}
 	// show navigation menu
 	const [showNavigation, setShowNavigation] = useState(false);
 	const handleToggleNavigation = () => {
@@ -75,10 +88,10 @@ const Header = ({ activeMenu, ready, data, error }) => {
 				<div className={style.inner} ref={ref}>
 					{/* Logo */}
 					<div className={style.logo}>
-						<Link to={data.brand.to} className={style.logoLink}>
+						<Link to={data?.brand.to} className={style.logoLink}>
 							<img
-								src={data.brand.logo}
-								alt={data.brand.name}
+								src={data?.brand.logo}
+								alt={data?.brand.name}
 								className={style.logoImg}
 							/>
 						</Link>
@@ -87,12 +100,12 @@ const Header = ({ activeMenu, ready, data, error }) => {
 					<div className={style.nav}>
 						<div className={style.menu}>
 							<ul className={style.list}>
-								{data.main_menu.map((val, idx) => (
+								{data?.main_menu.map((val, idx) => (
 									<li className={style.item} key={`hm-${idx}`}>
 										<Link
 											to={val.to}
 											className={
-												activeMenu === val.text.toLowerCase()
+												menu === val.text.toLowerCase()
 													? `${style.link} ${style.active}`
 													: style.link
 											}
@@ -104,13 +117,14 @@ const Header = ({ activeMenu, ready, data, error }) => {
 							</ul>
 						</div>
 						<div className={style.auth}>
-							{data.auth_menu.map((val, idx) => (
+							{data?.auth_menu.map((val, idx) => (
 								<div className={style.authItem} key={`am-${idx}`}>
 									<Button to={val.to} variant="accent">
 										<span>{val.text}</span>
 									</Button>
 								</div>
 							))}
+							<Button variant="accent">{total}</Button>
 						</div>
 						<button
 							type="button"
